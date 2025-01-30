@@ -24,6 +24,8 @@ export async function generatorLogStart(context) {
     'develop',
   )
 
+  info(`releases data:${releases}`)
+
   const PRNumbers = getPullNumbers(releases.data.body)
 
   const PRListRes = await Promise.all(PRNumbers.map(pull_number => getPullRequest(
