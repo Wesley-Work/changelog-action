@@ -29951,6 +29951,7 @@ function generatorLogStart(context) {
         const { owner, repo } = context.repo;
         (0, core_1.info)(`owner:${owner}, repo:${repo}`);
         const releases = yield generateReleaseNotes(owner, repo, tag, 'develop');
+        (0, core_1.info)(`releases data:${releases}`);
         const PRNumbers = (0, renderer_1.getPullNumbers)(releases.data.body);
         const PRListRes = yield Promise.all(PRNumbers.map(pull_number => getPullRequest(owner, repo, pull_number)));
         const PRList = PRListRes.map(res => res.data);
